@@ -13,12 +13,36 @@
 window.addEventListener('load', onLoad);
 
 function onLoad() {
-  console.log('hi');
+  console.log('hi');  
+  inicio();
 }
 
-let list_span = document.getElementsByTagName('span');
-let cont = 0;
-for (let span of list_span) {
-  span.setAttribute('class', 'element-' + cont);
-  cont++;
+
+function inicio() {
+
+  let list = document.getElementsByTagName("span");
+
+  let cont = 1;
+  for (let span of list) {
+    span.setAttribute("class","element-"+cont);
+    cont++;
+  }
+
+  cont = 1;
+
+  let list2 = document.getElementById("list2");
+
+  let number_of_li = document.getElementById("list1").childElementCount;
+  
+  for (let i = 0; i < number_of_li; i++) {
+    let li = document.createElement("li");
+    let boton = document.createElement("button");
+    boton.setAttribute("class", "element-"+cont);
+    boton.innerHTML = "boton ejemplo " + cont;
+    cont++;
+    li.appendChild(boton);
+    list2.appendChild(li);
+  }
 }
+
+
